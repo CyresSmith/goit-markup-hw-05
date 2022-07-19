@@ -78,7 +78,6 @@ img {
 .main-nav {
     display: flex;
     align-items: center
-    
 }
 
 nav {
@@ -97,7 +96,6 @@ nav {
     line-height: 1.19;
     letter-spacing: 0.03em;
     text-decoration: none;
-    
 }
 
 .logo-accent {
@@ -141,13 +139,14 @@ nav {
     border-radius: 2px;
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 250ms var(--timing-function);   
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 
 .site-nav-item-text:hover:after,
 .site-nav-item-text:focus:after {
-    transform: scaleX(1);   
-    color: var(--accentcolor);
+    transform: scaleX(1);
 }
 
 .site-nav-item-text:hover,
@@ -177,6 +176,8 @@ nav {
 }
 
 .contact-nav-item-text {
+    position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
     color: #757575;
@@ -184,7 +185,6 @@ nav {
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration: none;
-    
 }
 
 .contact-nav-item:not(:last-child) {
@@ -195,6 +195,14 @@ nav {
     display: block;
     margin-right: 10px;
     fill: currentColor;
+    transition: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier();
+}
+
+.contact-nav-item-icon.second {
+    position: absolute;
+    transform: translateY(30px);
 }
 
 .contact-nav-item-text:hover,
@@ -202,6 +210,13 @@ nav {
     color: var(--accentcolor);
 }
 
+.contact-nav-item-text:hover .contact-nav-item-icon {
+    transform: translateY(-30px);
+}
+
+.contact-nav-item-text:hover .contact-nav-item-icon.second {
+    transform: translateY(0);
+}
 
 /* Тело */
 
@@ -589,6 +604,7 @@ address {
     background-color: rgba(33, 150, 243, 0.9);
     transform: translateY(100%);
     transition: 250ms;
+    transition-timing-function: var(--timing-function)
 }
 
 .worklist-card-overlay-text {
@@ -600,7 +616,7 @@ address {
     color: var(--white);
 }
 
-.worklist-card-thumb:hover .worklist-card-overlay {
+.worklist-card:hover .worklist-card-overlay {
     transform: translateY(0);
 }
 
@@ -662,13 +678,20 @@ address {
     width: 100%;
     height: 100%;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.2);
-    opacity: 1;    
+    background-color: rgba(0, 0, 0, 0.2);    
+    visibility: visible;
+    opacity: 1;
+    scale: 1;
+    transition-property: opacity, transform, visibility;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 
-.backdrop.is-hidden {
-    opacity: 0;
+.backdrop.is-hidden {    
+    visibility: hidden;
     pointer-events: none;
+    opacity: 0;
+    transform: scale(1.5);
 }
 
 .modal {
@@ -694,5 +717,14 @@ address {
     height: 30px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+    fill: #000000;
     background-color: var(--white);
+    transition-property: fill, transform;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
+}
+
+.button.close-btn:hover {
+    fill: tomato;
+    transform: rotate(180deg);
 }
