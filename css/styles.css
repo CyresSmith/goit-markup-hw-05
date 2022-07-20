@@ -126,6 +126,9 @@ nav {
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration: none;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 
 .site-nav-item-text::after {
@@ -185,6 +188,9 @@ nav {
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration: none;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 
 .contact-nav-item:not(:last-child) {
@@ -195,9 +201,9 @@ nav {
     display: block;
     margin-right: 10px;
     fill: currentColor;
-    transition: transform;
+    transition-property: transform;
     transition-duration: 250ms;
-    transition-timing-function: cubic-bezier();
+    transition-timing-function: var(--timing-function);
 }
 
 .contact-nav-item-icon.second {
@@ -407,6 +413,9 @@ nav {
     height: 44px;
     border-radius: 50%;
     color: #AFB1B8;
+    transition-property: color, background-color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 
 .social-link-icon {
@@ -444,6 +453,9 @@ nav {
     border: 1px solid #AFB1B8;
     border-radius: 4px;
     color: #AFB1B8;
+    transition-property: color, border-color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 
 .customers-logo {
@@ -495,6 +507,9 @@ address {
     text-decoration: none;
     margin-top: 0px;
     margin-bottom: 0px;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 
 .footer-adress-item-text:hover,
@@ -566,6 +581,9 @@ address {
     display: block;
     text-decoration: none;
     color: currentColor;
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function)
 }
 
 .worklist-card-link:hover,
@@ -616,7 +634,8 @@ address {
     color: var(--white);
 }
 
-.worklist-card:hover .worklist-card-overlay {
+.worklist-card-link:hover .worklist-card-overlay,
+.worklist-card-link:focus .worklist-card-overlay {
     transform: translateY(0);
 }
 
@@ -643,6 +662,9 @@ address {
     padding: 10px 32px;
     margin-left: auto;
     margin-right: auto;
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 
 .button.hero:hover,
@@ -658,7 +680,9 @@ address {
     padding-bottom: 6px;
     padding-left: 22px;
     padding-right: 22px;
-    
+    transition-property: box-shadow, color, background-color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 
 .button.primary:hover,
